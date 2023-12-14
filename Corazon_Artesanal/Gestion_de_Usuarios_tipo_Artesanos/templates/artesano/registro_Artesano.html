@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Registro Artesano</title>
+   {% load static %}
+
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"crossorigin="anonymous"></script>
+
+   <link rel="icon" href="{% static 'Imgs/logoCorazon.jpg' %}" type="image/gif" />
+</head>
+<body>
+   <nav class="navbar" style="background-color: #ebe4d4;">
+      <div class="container">
+         <a class="logo" href="{% url 'Gestion_de_Usuarios_tipo_Artesanos:loginArtesano' %}"><img src="{% static 'Imgs/logoCA.jpeg' %}" width="100"></a>
+         <img src="{% static 'Imgs/textoCA.jpeg' %}" width="250" style="margin-left: 90px;"/>
+         <h1 style="color: #0d2026;"> Bienvenido </h1>
+      </div>
+   </nav>
+   <div class="container-fluid d-flex justify-content-center" style="background-color: #cc9966;">
+      <div class="contact_section_2">
+         <figure class="figure d-flex justify-content-center">
+            <img src="{% static 'Imgs/user-solid.png' %}" width="100" class="figure-img img-fluid rounded" alt="...">
+         </figure>
+         <div class="card">
+            <div class="card-header text-center">
+               Registrarse
+            </div>
+            <div class="card-body">
+               <form method="post">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+                  <button class="btn" style="background-color: #ffe5d0;" type="submit">Registrarse</button>
+               </form>
+            </div>
+            <div class="card-footer text-center">
+               <p><a href="{% url 'Gestion_de_Usuarios_tipo_Artesanos:loginArtesano' %}">¿Ya tiene cuenta?, Inicie Sesión Aquí.</a></p>
+               <a href="{% url 'Gestion_de_Usuarios_tipo_Comprador:RegistroComprador' %}">¿Quieres ser cliente?, Regístrese Aquí.</a>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="footer_section" style="background-color: #221911;">
+      <div class="container">
+         <div class="row d-flex justify-content-center">
+            <h2 class="useful_text text-center" style="color: white;">Corazon Artesanal</h2>
+         </div>
+      </div>
+   </div>
+</body>
+</html>
